@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Lieu</string>
+    <string name="lieu_name">Easy Trip</string>
+    <string name="lieuETchoixAeroport"></string>
+    <string name="lieuTVafficherAeroports" />
+    <string name="lieuLVlisteAeroports"></string>
+    <string name="lieuBtnMiseAJourListe">MAJ</string>
+</resources>
