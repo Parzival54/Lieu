@@ -1,9 +1,11 @@
 package com.example.merguez.lieu;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
@@ -12,6 +14,12 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -32,6 +40,18 @@ public class Lieu extends AppCompatActivity implements TextWatcher {
         setContentView(R.layout.activity_lieu);
         lieuETchoixAeroport  = (EditText) findViewById(R.id.lieuETchoixAeroport);
         lieuLVlisteAeroports = (ListView) findViewById(R.id.list);
+        FileOutputStream fos = null;
+        Log.w("TAG",Lieu.this.getFilesDir().getAbsolutePath());
+        try {
+            fos = openFileOutput("vols.txt", MODE_APPEND);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        try {
+            new ListeVols().creerVol(fos, this);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         lieuETchoixAeroport.addTextChangedListener(this);
         masquerClavier();

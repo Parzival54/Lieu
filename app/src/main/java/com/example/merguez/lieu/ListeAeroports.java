@@ -1,6 +1,7 @@
 package com.example.merguez.lieu;
 
 import android.content.Context;
+import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -71,6 +72,7 @@ public class ListeAeroports {
             }
             else {
                 listeAeroports = new HashMap<>();
+                Log.w("TAG", "inférieur à 3 char");
                 listeAeroports.put("text1","Aucune réponse");
                 listeGlobale.add(listeAeroports);
                 return listeGlobale;

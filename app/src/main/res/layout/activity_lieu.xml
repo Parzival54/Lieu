@@ -24,7 +24,6 @@
         android:hint="Aéroport, ville, pays, code"
         android:inputType="text"
         android:layout_alignParentEnd="true" />
-    <!-- android:focusableInTouchMode="false" -->
 
     <ListView
         android:layout_width="wrap_content"
